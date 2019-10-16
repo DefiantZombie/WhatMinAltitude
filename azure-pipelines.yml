@@ -16,6 +16,10 @@ variables:
   value: 'release'
 - name: KSPVersion
   value: '1.7.3'
+- name: ProjectName
+  value: 'WhatMinAltitude'
+- name: AuthConnection
+  value: 'DefiantZombie (OAuth)'
 
 stages:
 - stage: build
@@ -70,9 +74,10 @@ stages:
   jobs:
   - template: ci/templates/release-job.yml
     parameters:
-      gitHubConnection: 'DefiantZombie (OAuth)'
+      gitHubConnection: $(AuthConnection)
       preRelease: false
       kspVersion: $(KSPVersion)
+      projectName: $(ProjectName)
 
 
 - stage: pre_release
@@ -90,6 +95,7 @@ stages:
   jobs:
   - template: ci/templates/release-job.yml
     parameters:
-      gitHubConnection: 'DefiantZombie (OAuth)'
+      gitHubConnection: $(AuthConnection)
       preRelease: true
       kspVersion: $(KSPVersion)
+      projectName: $(ProjectName)
