@@ -15,7 +15,7 @@ variables:
 - name: BuildConfiguration
   value: 'release'
 - name: KSPVersion
-  value: '1.7.3'
+  value: '1.8.0'
 - name: ProjectName
   value: 'WhatMinAltitude'
 - name: AuthConnection
